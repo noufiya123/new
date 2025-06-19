@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit ATS Resume</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .resume-container {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #444;
+    }
+    .editable {
+      border: 1px dashed #ccc;
+      padding: 10px;
+      min-height: 60px;
+      background: #fefefe;
+    }
+    .btn-download {
+      margin: 30px auto;
+      display: block;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #ffd600;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container" id="resume">
+    <h2 contenteditable="true">Your Name</h2>
+
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <div class="editable" id="summary" contenteditable="true">
+        Loading extracted content...
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div class="editable" contenteditable="true">Communication, Teamwork, Leadership</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="editable" contenteditable="true">B.Tech in Computer Science - XYZ University</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Experience</div>
+      <div class="editable" contenteditable="true">Software Intern - ABC Tech (2023-2024)</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <div class="editable" contenteditable="true">JavaScript Bootcamp - FreeCodeCamp</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Contact Information</div>
+      <div class="editable" contenteditable="true">Email: yourname@example.com | Phone: +91 9876543210 | LinkedIn: linkedin.com/in/yourname</div>
+    </div>
+  </div>
+
+  <button class="btn-download" onclick="downloadPDF()">Download as PDF</button>
+
+  <script>
+    // Fill the summary section with extracted PDF text
+    const extracted = localStorage.getItem('resumeText');
+    if (extracted) {
+      document.getElementById('summary').innerText = extracted;
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById('resume');
+      html2pdf().from(element).save("ATS_Resume.pdf");
+    }
+  </script>
+
+</body>
+</html>

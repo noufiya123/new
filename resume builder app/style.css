@@ -1,0 +1,36 @@
+/* Theme Colors */
+.text-purple {
+  color: #8e24aa;
+}
+
+.gradient-btn {
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  border: none;
+}
+
+.gradient-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.btn-outline-primary {
+  border: 2px solid #dd2476;
+  color: #dd2476;
+}
+
+.btn-outline-primary:hover {
+  background-color: #dd2476;
+  color: white;
+}
+#resume-content {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  overflow: visible !important;
+  height: auto !important;
+}
+.form-select {
+  background-color: #fffde7;
+  border: 1px solid #ffd600;
+  font-weight: bold;
+}
